@@ -44,7 +44,7 @@ POST http://localhost:5000/users/register
 POST http://localhost:5000/users/login
 ```
 
-### User Data Stored
+## User Data Stored
 
 - All user data will stored in **userArray** in this sample
 ```js
