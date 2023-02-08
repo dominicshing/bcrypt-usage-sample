@@ -101,16 +101,16 @@ $2b$10$/iS.1u7uUdk8l6bzwob2PODcd7H/OH5BINB1FKWWvTPkSlxmvGcWu
 - Check if the passwords are match or not after running **bcrypt.compare()**
  ```js
 // Check if the passwords match
-      if (passwordMatch) {
-        // If passwords match
-        res.status(200).send('login Successfully');
-      } else {
-        // If passwords not match
-        res
-          .status(500)
-          .send(
-            'login failed, Please check the username and password and try again!'
-          );
-      }
+if (passwordMatch) {
+  // If passwords match
+  res.status(200).send('login Successfully');
+} else {
+  // If passwords not match
+  res
+    .status(500)
+    .send(
+      'login failed, Please check the username and password and try again!'
+    );
+}
  ```
  
