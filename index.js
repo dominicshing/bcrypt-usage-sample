@@ -121,7 +121,7 @@ app.post('/users/login', async (req, res) => {
           res
             .status(500)
             .send(
-              'login failed, Please check the upsername and password and try again!'
+              'login failed, Please check the username and password and try again!'
             );
         }
       }
