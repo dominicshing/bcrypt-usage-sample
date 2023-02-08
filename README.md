@@ -51,8 +51,9 @@ POST http://localhost:5000/users/login
 const userArray = [];
 ```
 
-- User registered will be added to this array, and will check this array when user login,
-below is the sample of the **userArray**:
+- New user registered will be added to this array. When user login, it will match with this array for correct crediential as well.  
+
+Below is the sample of the **userArray**:
 ```json
 [
   {
@@ -66,7 +67,7 @@ below is the sample of the **userArray**:
 ]
 ```
 
-## User Registration: use Bcryt for Password encyption
+## User Registration: Use Bcryt for Password Encyption
 
 ### Generate hashed password with salt
 
@@ -85,10 +86,31 @@ passwordHash = await bcrypt.hash(password, salt);
 passwordHash = await bcrypt.hash(password, 10);
 ```
 
+### The Generated Hashed Password will Look Like:
+```
+$2b$10$/iS.1u7uUdk8l6bzwob2PODcd7H/OH5BINB1FKWWvTPkSlxmvGcWu
+```
+
 ## User Login: Compare User Entered Password with Hashed Password
+-  **bcrypt.compare(pwdToCheck, hashedPwd)** will return **true** if the password matches, **false** otherwises.
 ```js
 // If user set, check password entrered with bcrypt hashed password
  const passwordMatch = await bcrypt.compare(password, user.password);
  ```
- 
+
+- Check if the passwords are match or not after running **bcrypt.compare()**
+ ```js
+// Check if the passwords match
+      if (passwordMatch) {
+        // If passwords match
+        res.status(200).send('login Successfully');
+      } else {
+        // If passwords not match
+        res
+          .status(500)
+          .send(
+            'login failed, Please check the username and password and try again!'
+          );
+      }
+ ```
  
